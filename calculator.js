@@ -118,7 +118,7 @@ function update() {
     // STEP 2: right retaliates AFTER taking damage
     let retaliationDamage = 0;
 
-    if (UNITS[right.unit].retaliation) {
+    if (UNITS[right.unit].retaliation && UNITS[left.unit].retaliation) {
         retaliationDamage = calc(rightAfterHit, left);
     }
 
