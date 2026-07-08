@@ -44,6 +44,6 @@ function setFactionColor(side, color) {
 
 function playSelectSound() {
     const sound = new Audio("sounds/UI_Click_Confirm.ogg");
-    sound.volume = 0.1;
+    sound.volume = 0.08;
     sound.play();
 }

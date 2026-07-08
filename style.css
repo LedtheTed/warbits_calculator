@@ -104,16 +104,6 @@ body {
     --color-shadow: var(--purple-shadow);
 }
 
-.panel-face,
-.panel-shadow,
-.header,
-button {
-    transition:
-        background-color 0.1s ease,
-        box-shadow 0.1s ease,
-        color 0.1s ease;
-}
-
 /* ---------- PANELS ---------- */
 
 .panel {
@@ -312,10 +302,6 @@ button {
         box-shadow 0.08s ease;
 }
 
-button:focus {
-    outline: none;
-}
-
 .color-button {
     --button-depth: clamp(2px, 0.25vw, 4px);
 
@@ -374,7 +360,7 @@ button:hover {
     filter: brightness(1.08);
 }
 
-button:active {
+button.pressed {
     transform: translateY(var(--button-depth));
     box-shadow: 0 0 0 var(--color-main);
 }

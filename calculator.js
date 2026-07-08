@@ -40,6 +40,38 @@ fetch("units.json")
     document.getElementById(id).addEventListener("input", update);
 });
 
+document.addEventListener("pointerdown", (event) => {
+    const button = event.target.closest("button");
+
+    if (button) {
+        button.classList.add("pressed");
+    }
+});
+
+document.addEventListener("pointerup", (event) => {
+    const button = event.target.closest("button");
+
+    if (button) {
+        button.classList.remove("pressed");
+    }
+});
+
+document.addEventListener("pointerleave", (event) => {
+    const button = event.target.closest("button");
+
+    if (button) {
+        button.classList.remove("pressed");
+    }
+});
+
+document.addEventListener("pointercancel", (event) => {
+    const button = event.target.closest("button");
+
+    if (button) {
+        button.classList.remove("pressed");
+    }
+});
+
 update();
 
 /*------- functions -------*/
@@ -167,6 +199,6 @@ function createUnitButtons(container, side) {
 
 function playBuySound() {
     const sound = new Audio("sounds/UI_BuyUnit.ogg");
-    sound.volume = 0.1;
+    sound.volume = 0.08;
     sound.play();
 }
