@@ -1,0 +1,435 @@
+:root {
+    --panel-width: 15vw;
+    --panel-radius: 12px;
+    --panel-shadow-offset: 15px;
+
+    --highlight: #CCCCCC;
+    --shadow: #1A1A1A;
+
+    --red-highlight: #EF4D26;
+    --red-highlight-2: #C83827;
+    --red-main: #8F2C21;
+    --red-shadow: #351C17;
+
+    --blue-highlight: #26AAFF;
+    --blue-highlight-2: #4766AF;
+    --blue-main: #2F4C9A;
+    --blue-shadow: #182332;
+
+    --orange-highlight: #EF9F02;
+    --orange-highlight-2: #ED8514;
+    --orange-main: #B25A02;
+    --orange-shadow: #422A00;
+
+    --green-highlight: #89B31B;
+    --green-highlight-2: #39B54A;
+    --green-main: #17782F;
+    --green-shadow: #002500;
+
+    --purple-highlight: #7952A2;
+    --purple-highlight-2: #F200D9;
+    --purple-main: #3E3549;
+    --purple-shadow: #3D173D;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+html {
+    font-family: "Oswald", sans-serif;
+    letter-spacing: 0em;
+    font-weight: 200;
+}
+
+body {
+    background: white;
+    overflow: hidden;
+}
+
+/* ---------- LAYOUT ---------- */
+
+.page {
+    display: grid;
+    grid-template-columns: var(--panel-width) 1fr var(--panel-width);
+    width: 100vw;
+    height: 100vh;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ---------- COLORS ---------- */
+
+/* Red Bear Republic */
+.red {
+    --color-highlight: var(--red-highlight);
+    --color-main: var(--red-main);
+    --color-shadow: var(--red-shadow);
+}
+
+/* Blue Whale Empire */
+.blue {
+    --color-highlight: var(--blue-highlight);
+    --color-main: var(--blue-main);
+    --color-shadow: var(--blue-shadow);
+}
+
+/* Orange Sun Union */
+.orange {
+    --color-highlight: var(--orange-highlight);
+    --color-main: var(--orange-main);
+    --color-shadow: var(--orange-shadow);
+}
+
+/* Green Cactus Army */
+.green {
+    --color-highlight: var(--green-highlight);
+    --color-main: var(--green-main);
+    --color-shadow: var(--green-shadow);
+}
+
+/* Purple Plasma Platoon */
+.purple {
+    --color-highlight: var(--purple-highlight);
+    --color-main: var(--purple-main);
+    --color-shadow: var(--purple-shadow);
+}
+
+.panel-face,
+.panel-shadow,
+.header,
+button {
+    transition:
+        background-color 0.1s ease,
+        box-shadow 0.1s ease,
+        color 0.1s ease;
+}
+
+/* ---------- PANELS ---------- */
+
+.panel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.panel-face,
+.panel-shadow {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+.panel-face {
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    gap: 0;
+}
+
+.panel-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.panel-shadow {
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+}
+
+/* LEFT */
+
+.left .panel-face {
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 0 var(--panel-radius) var(--panel-radius) 0;
+}
+
+.left .panel-shadow {
+    left: var(--panel-shadow-offset);
+    right: calc(-1 * var(--panel-shadow-offset));
+    background: var(--highlight);
+    border-radius: 0 var(--panel-radius) var(--panel-radius) 0;
+}
+
+/* RIGHT */
+
+.right .panel-face {
+    right: 0;
+    left: 0;
+    background: white;
+    border-radius: var(--panel-radius) 0 0 var(--panel-radius);
+}
+
+.right .panel-shadow {
+    right: var(--panel-shadow-offset);
+    left: calc(-1 * var(--panel-shadow-offset));
+    background: var(--highlight);
+    border-radius: var(--panel-radius) 0 0 var(--panel-radius);
+}
+
+/* ---------- OTHER HEADER (like... the actual one. adding this late --------- */
+
+header {
+    height: 160px;
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 80px;
+    color: white;
+    background-color: black;
+}
+
+header img {
+    height: 100%;
+    width: auto;
+}
+
+/* ---------- HEADER ---------- */
+.header {
+    flex: 0 0 15%;
+    min-height: 40px;
+    background: var(--color-shadow);
+
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    user-select: none;
+}
+
+.left .header { 
+    border-radius: 0 var(--panel-radius) 0 0;
+}
+
+.right .header {
+    border-radius: var(--panel-radius) 0 0 0;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: clamp(2rem, 3vw, 3rem);
+    color: white;
+    text-transform: uppercase;
+}
+
+/* ---------- CENTER ---------- */
+
+.combat {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.display {
+    --icon-color: var(--color-highlight);
+    text-align: center;
+    font-size: 20px;
+}
+
+.icon {
+    font-size: 60px;
+}
+
+.arrows {
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.hp-color {
+    color: var(--color-highlight);
+    font-size: 14px;
+    margin-top: 4px;
+    opacity: 0.9;
+}
+
+/* ---------- BUTTONS ---------- */
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    gap: 12px;
+    width: 100%;
+}
+
+.grid-3 {
+    --columns: 3;
+}
+
+.grid-4 {
+    --columns: 4;
+}
+
+
+.grid-5 {
+    --columns: 5;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--color-highlight); /* the actual top color used */
+    box-shadow: 0 6px 0 var(--color-main); /* the bottom color for when compressed */
+    font-size: 2rem;
+    cursor: pointer;
+
+    transition:
+        transform 0.08s ease,
+        box-shadow 0.08s ease;
+}
+
+.color-button {
+    width: 100%;
+    aspect-ratio: 1;
+    border: none;
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    box-shadow: 0 4px 0 var(--color-main);
+
+    user-select: none;
+}
+
+.color-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.unit-button {
+    width: 100%;
+    aspect-ratio: 1;
+    border: none;
+    border-radius: 15%;
+
+    overflow: hidden;
+
+}
+
+.unit-button img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+button:hover {
+    filter: brightness(1.08);
+}
+
+button:active {
+    transform: translateY(6px);
+    box-shadow: 0 0 0 #444b57;
+}
+
+.color-button:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 #444b57;
+}
+
+
+/* ---------- DIVIDER ---------- */
+
+.divider {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.divider span {
+    flex: 1;
+    height: 2px;
+    background: var(--color-highlight);
+}
+
+.diamond {
+    width: 24px;
+    height: 12px;
+    background: var(--color-highlight);
+
+    margin-left: -2px;
+    margin-right: -2px;
+
+    clip-path: polygon(
+        50% 0%,
+        100% 50%,
+        50% 100%,
+        0% 50%
+    );
+}
+
+/* ----------- CENTER IMAGES ----------- */
+
+.icon {
+    width: 180px;
+    aspect-ratio: 1;
+    object-fit: contain;
+    user-select: none;
+    pointer-events: none;
+}
+
+
+/* -------- SHINE ------ */
+
+.unit-button,
+.color-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.unit-button::before,
+.color-button::before {
+    content: "";
+
+    position: absolute;
+
+    width: 160%;
+    height: 25%;
+
+    left: -30%;
+    bottom: -30%;
+
+    background: rgba(255, 255, 255, 0.25);
+
+    transform: rotate(-20deg);
+
+    pointer-events: none;
+
+    opacity: 0;
+}
+
+.unit-button:hover::before,
+.color-button:hover::before {
+    animation: glint 0.8s;
+}
+
+@keyframes glint {
+    0% {
+        bottom: -40%;
+        opacity: 1;
+    }
+
+    100% {
+        bottom: 120%;
+        opacity: 1;
+    }
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Warbits Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <img src="images/logo.png" alt="Warbits+ Logo">
+        Calculator
+    </header>
+    <div class="page">
+        <div class="panel left red" data-side="left">
+            <div class="panel-shadow"></div>
+            <div class="panel-face">
+                <div class="header left">
+                    <h1>Attacker</h1>
+                </div>     
+                <div class="panel-content">
+                <div class="information">
+                </div>
+                <div class="button-grid grid-5 color-picker" data-side="left">
+                    <button class="color-button red" data-color="red">
+                        <img src="images/red_bear.png" alt="Red Bear Republic" draggable="false">
+                    </button>
+                    <button class="color-button blue" data-color="blue">
+                        <img src="images/blue_whale.png" alt="Blue Whale Empire" draggable="false">
+                    </button>
+                    <button class="color-button orange" data-color="orange">
+                        <img src="images/orange_sun.png" alt="Orange Sun Union" draggable="false">
+                    </button>
+                    <button class="color-button green" data-color="green">
+                        <img src="images/green_cactus.png" alt="Green Cactus Army" draggable="false">
+                    </button>                
+                    <button class="color-button purple" data-color="purple">
+                        <img src="images/purple_plasma.png" alt="Purple Plasma Platoon" draggable="false">
+                    </button>
+                </div>
+
+                <div class="divider">
+                    <span></span>
+                    <div class="diamond"></div>
+                    <span></span>
+                </div>
+
+                <div class="unit-buttons button-grid grid-4" data-side="left"></div>
+
+                <div class="divider">
+                    <span></span>
+                    <div class="diamond"></div>
+                    <span></span>
+                </div>
+
+                <label>Health</label>
+                <input id="leftHealth" type="range" min="1" max="10" value="10">
+
+                <label>Terrain</label>
+                <select id="leftTerrain">
+                    <option value="dirt">Dirt</option>
+                    <option value="road">Road</option>
+                    <option value="plains">Plains</option>
+                    <option value="forest">Forest</option>
+                    <option value="mountain">Mountain</option>
+                </select>
+                </div>
+            </div>
+        </div>
+
+        <main class="center">
+            <div class="combat">
+                <div class="display red" data-side="left">
+                    <img id="leftIcon" class="icon">
+                    <div id="leftHP">10 HP</div>
+                    <div id="leftHPColor" class="hp-color"></div>
+                </div>
+                <div class="arrows">
+                    <div>
+                        ➜ <span id="attack">0%</span>
+                    </div>
+                    <div>
+                        ⬅ <span id="retaliation">0%</span>
+                    </div>
+                </div>
+                <div class="display blue" data-side="right">
+                    <img id="rightIcon" class="icon">
+                    <div id="rightHP">10 HP</div>
+                    <div id="rightHPColor" class="hp-color"></div>
+                </div>
+            </div>
+        </main>
+
+        <div class="panel right blue" data-side="right">
+            <div class="panel-shadow"></div>
+            <div class="panel-face">
+                <div class="header right">
+                    <h1>Defender</h1>
+                </div>     
+                <div class="panel-content">
+                <div class="information">
+                </div>
+                <div class="button-grid grid-5 color-picker" data-side="right">
+                    <button class="color-button red" data-color="red">
+                        <img src="images/red_bear.png" alt="Red Bear Republic" draggable="false">
+                    </button>
+                    <button class="color-button blue" data-color="blue">
+                        <img src="images/blue_whale.png" alt="Blue Whale Empire" draggable="false">
+                    </button>
+                    <button class="color-button orange" data-color="orange">
+                        <img src="images/orange_sun.png" alt="Orange Sun Union" draggable="false">
+                    </button>
+                    <button class="color-button green" data-color="green">
+                        <img src="images/green_cactus.png" alt="Green Cactus Army" draggable="false">
+                    </button>                
+                    <button class="color-button purple" data-color="purple">
+                        <img src="images/purple_plasma.png" alt="Purple Plasma Platoon" draggable="false">
+                    </button>
+                </div>
+
+                <div class="divider">
+                    <span></span>
+                    <div class="diamond"></div>
+                    <span></span>
+                </div>
+
+                <div class="unit-buttons button-grid grid-4" data-side="right"></div>
+
+                <div class="divider">
+                    <span></span>
+                    <div class="diamond"></div>
+                    <span></span>
+                </div>
+
+                <label>Health</label>
+                <input id="rightHealth" type="range" min="1" max="10" value="10">
+
+                <label>Terrain</label>
+                <select id="rightTerrain">
+                    <option value="dirt">Dirt</option>
+                    <option value="road">Road</option>
+                    <option value="plains">Plains</option>
+                    <option value="forest">Forest</option>
+                    <option value="mountain">Mountain</option>
+                </select>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="calculator.js"></script>
+    <script src="faction_picker.js"></script>
+    </body>
+</html>
